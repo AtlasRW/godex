@@ -1,8 +1,8 @@
 name: Update DOC wiki
 on:
   push:
-    branches: main
-    paths: doc_classes/*
+    branches: [main]
+    paths: [doc_classes/*]
 
 jobs:
   wiki:

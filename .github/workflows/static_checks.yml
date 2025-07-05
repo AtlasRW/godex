@@ -4,10 +4,10 @@ on: [push, pull_request]
 jobs:
   static-checks:
     name: Static Checks (clang-format, black format, file format, documentation checks)
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # Azure repositories are not reliable, we need to prevent azure giving us packages.
       - name: Make apt sources.list use the default Ubuntu repositories
@@ -33,4 +33,3 @@ jobs:
       #- name: Documentation checks
       #  run: |
       #    doc/tools/makerst.py --dry-run doc/classes modules
-
