@@ -37,12 +37,12 @@ jobs:
           ref: refs/heads/godex_version
           path: godot
 
-      # Azure repositories are not reliable, we need to prevent azure giving us packages.
-      - name: Make apt sources.list use the default Ubuntu repositories
-        run: |
-          sudo rm -f /etc/apt/sources.list.d/*
-          sudo cp -f modules/godex/misc/ci/sources.list /etc/apt/sources.list
-          sudo apt-get update
+      # # Azure repositories are not reliable, we need to prevent azure giving us packages.
+      # - name: Make apt sources.list use the default Ubuntu repositories
+      #   run: |
+      #     sudo rm -f /etc/apt/sources.list.d/*
+      #     sudo cp -f modules/godex/misc/ci/sources.list /etc/apt/sources.list
+      #     sudo apt-get update
 
       # Install all packages (except scons)
       #   sudo apt-get install build-essential pkg-config libx11-dev libxcursor-dev \
