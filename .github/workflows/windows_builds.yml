@@ -18,7 +18,7 @@ env:
 jobs:
   windows-editor:
     # Windows 10 with latest image
-    runs-on: "windows-latest"
+    runs-on: windows-latest
     name: Editor (target=release_debug, tools=yes, tests=yes)
 
     steps:

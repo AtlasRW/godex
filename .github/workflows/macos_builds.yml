@@ -1,4 +1,4 @@
-name: 🐧 Linux Builds
+name: 🍎 macOS Builds
 
 on:
   push:
@@ -10,12 +10,12 @@ on:
 # Global Settings
 env:
   GODOT_BASE_BRANCH: master
-  SCONSFLAGS: platform=linuxbsd verbose=yes warnings=extra werror=yes debug_symbols=no --jobs=2 module_text_server_fb_enabled=yes
+  SCONSFLAGS: platform=macos arch=arm64 verbose=yes warnings=extra werror=yes debug_symbols=no --jobs=2 module_text_server_fb_enabled=yes
   SCONS_CACHE_LIMIT: 4096
 
 jobs:
-  linux-editor:
-    runs-on: ubuntu-22.04
+  macos-editor:
+    runs-on: macos-latest
     name: Editor (target=release_debug, tools=yes, tests=yes)
 
     steps:
