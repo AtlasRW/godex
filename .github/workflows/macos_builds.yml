@@ -37,32 +37,12 @@ jobs:
           ref: refs/heads/godex_version
           path: godot
 
-      # Azure repositories are not reliable, we need to prevent azure giving us packages.
-      - name: Make apt sources.list use the default Ubuntu repositories
-        run: |
-          sudo rm -f /etc/apt/sources.list.d/*
-          sudo cp -f modules/godex/misc/ci/sources.list /etc/apt/sources.list
-          sudo apt-get update
+      - name: Install Homebrew
+        run: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-      # Install all packages (except scons)
+      # Install all packages
       - name: Configure dependencies
-        run: |
-          sudo apt-get install -y \
-            build-essential \
-            # scons \
-            pkg-config \
-            libx11-dev \
-            libxcursor-dev \
-            libxinerama-dev \
-            libgl1-mesa-dev \
-            libglu1-mesa-dev \
-            libasound2-dev \
-            libpulse-dev \
-            libudev-dev \
-            libxi-dev \
-            libxrandr-dev \
-            libwayland-dev
-          sudo apt-get update
+        run: NONINTERACTIVE=1 brew install scons yasm
 
       # Upload cache on completion and check it out now
       - name: Load .scons_cache directory

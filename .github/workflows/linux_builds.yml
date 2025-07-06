@@ -33,7 +33,7 @@ jobs:
       - name: Clone godot for godex
         uses: actions/checkout@v4
         with:
-          repository: GodotECS/godot
+          repository: godotengine/godot
           ref: refs/heads/godex_version
           path: godot
 
