@@ -2,11 +2,9 @@ name: 🏁 Windows Builds
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 # Global Settings
