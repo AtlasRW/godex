@@ -42,7 +42,9 @@ jobs:
 
       # Install all packages
       - name: Configure dependencies
-        run: NONINTERACTIVE=1 brew install yasm
+        run: |
+          NONINTERACTIVE=1 brew install scons
+          scons --version
 
       # Upload cache on completion and check it out now
       - name: Load .scons_cache directory
@@ -65,13 +67,18 @@ jobs:
           # Optional - x64 or x86 architecture, defaults to x64
           architecture: "x64"
 
+      # # Setup scons, print python version and scons version info, so if anything is broken it won't run the build.
+      # - name: Configuring Python packages
+      #   run: |
+      #     python -c "import sys; print(sys.version)"
+      #     python -m pip install scons
+      #     python --version
+      #     scons --version
       # Setup scons, print python version and scons version info, so if anything is broken it won't run the build.
       - name: Configuring Python packages
         run: |
           python -c "import sys; print(sys.version)"
-          python -m pip install scons
           python --version
-          scons --version
 
       - name: Compilation
         env:
@@ -85,7 +92,7 @@ jobs:
       - name: Unit Tests
         run: |
           cd ./godot
-          ./bin/godot.linuxbsd.opt.tools.64 --test
+          ./bin/godot.osx.opt.tools.arm64 --test
           cd ../
 
       - uses: actions/upload-artifact@v4
