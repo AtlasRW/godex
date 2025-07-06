@@ -42,7 +42,7 @@ jobs:
 
       # Install all packages
       - name: Configure dependencies
-        run: NONINTERACTIVE=1 brew install scons yasm
+        run: NONINTERACTIVE=1 brew install yasm
 
       # Upload cache on completion and check it out now
       - name: Load .scons_cache directory
