@@ -1,8 +1,8 @@
 name: Update DOC wiki
 on:
   push:
-    branches: main
-    paths: doc_classes/*
+    branches: [main]
+    paths: [doc_classes/*]
 
 jobs:
   wiki:
@@ -35,4 +35,3 @@ jobs:
           user: GodexBot
         env:
           GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
-
