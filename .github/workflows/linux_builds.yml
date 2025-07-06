@@ -9,7 +9,7 @@ env:
 
 jobs:
   linux-editor:
-    runs-on: "ubuntu-22.04"
+    runs-on: "ubuntu-latest"
     name: Editor (target=release_debug, tools=yes, tests=yes)
 
     steps:
@@ -41,7 +41,7 @@ jobs:
       # Install all packages (except scons)
       - name: Configure dependencies
         run: |
-          sudo apt-get install build-essential pkg-config libx11-dev libxcursor-dev \
+          sudo apt-get install -f build-essential pkg-config libx11-dev libxcursor-dev \
             libxinerama-dev libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm
 
       # Upload cache on completion and check it out now
