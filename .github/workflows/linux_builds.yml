@@ -47,11 +47,13 @@ jobs:
       # Install all packages (except scons)
       #   sudo apt-get install build-essential pkg-config libx11-dev libxcursor-dev \
       #     libxinerama-dev libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm
+      #   sudo apt-get install build-essential pkg-config libx11-dev libxcursor-dev \
+      #     libxinerama-dev libgl1-mesa-dev libglu1-mesa-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev libwayland-dev
       - name: Configure dependencies
         run: |
           sudo apt-get update
           sudo apt-get install build-essential pkg-config libx11-dev libxcursor-dev \
-            libxinerama-dev libgl1-mesa-dev libglu1-mesa-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev libwayland-dev
+            libxinerama-dev libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm
           sudo apt-get update
 
       # Upload cache on completion and check it out now
