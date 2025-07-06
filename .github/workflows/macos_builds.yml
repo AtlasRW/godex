@@ -46,6 +46,10 @@ jobs:
           NONINTERACTIVE=1 brew install scons
           scons --version
 
+      # Install Vulkan SDK
+      - name: Vulkan SDK
+        run: sh godot/misc/scripts/install_vulkan_sdk_macos.sh
+
       # Upload cache on completion and check it out now
       - name: Load .scons_cache directory
         id: linux-editor-cache
